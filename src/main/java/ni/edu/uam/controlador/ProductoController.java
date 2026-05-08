@@ -33,11 +33,18 @@ public abstract class ProductoController implements CRUDinterface {
 
     @Override
     public void eliminar(long id) {
-
+            Producto producto = BuscarId(id);
+            if (producto!=null){
+                productos.remove(producto);
+            }
     }
 
     @Override
     public Producto BuscarId(long id) {
+        for (Producto producto : productos) {
+            if (producto.getId()==id){ return producto;}
+
+        }
         return null;
     }
 }
